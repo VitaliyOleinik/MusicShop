@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        createSpinner();
+        createHashMap();
+    }
+
+    public void createSpinner(){
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         spinnerAraayList = new ArrayList();
@@ -39,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerAraayList); // this -> for this class || simple -> element || give ArrayList with elements
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // we install spinner dropdown
         spinner.setAdapter(spinnerAdapter); // install adapter for spinner
+    }
 
+    public void createHashMap(){
         goodsMap = new HashMap();
         goodsMap.put("music plate", 990.0);
         goodsMap.put("keyboard", 9990.0);
