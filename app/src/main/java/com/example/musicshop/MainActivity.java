@@ -2,6 +2,7 @@ package com.example.musicshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -117,12 +118,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Order order = new Order();
 
         order.userName = userNameEditText.getText().toString();
-        Log.d("userName", order.userName); // for checking work it or not work in debug
+        // Log.d("userName", order.userName); // for checking work it or not work in debug
         order.goodsName = goodsName;
-        Log.d("goodsName", order.goodsName);
+        // Log.d("goodsName", order.goodsName);
         order.quantity = quantity;
-        Log.d("quantity", String.valueOf(order.quantity));
+        // Log.d("quantity", String.valueOf(order.quantity));
         order.orderPrice = quantity * price;
-        Log.d("userName", String.valueOf(order.orderPrice));
+        // Log.d("userName", String.valueOf(order.orderPrice));
+        order.price = price;
+        // Log.d("price", String.valueOf(order.price));
+
+        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+        orderIntent.putExtra("userNameForIntent", order.userName);
+        orderIntent.putExtra("goodsNameForIntent", order.goodsName);
+        orderIntent.putExtra("quantityForIntent", order.quantity);
+        orderIntent.putExtra("orderPriceForIntent", order.orderPrice);
+        orderIntent.putExtra("unitPriceForIntent", order.price);
+
+        startActivity(orderIntent);
     }
 }
