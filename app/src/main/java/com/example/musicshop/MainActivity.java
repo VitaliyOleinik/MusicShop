@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -69,6 +70,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         price = (double) goodsMap.get(goodsName);
         TextView priceTextView = findViewById(R.id.priceTextView);
         priceTextView.setText(String.valueOf(quantity * price));
+
+        ImageView goodsImageView = findViewById(R.id.goodsImageView);
+        TextView informationTextView = findViewById(R.id.informationTextView);
+        switch (goodsName){
+            case ("keyboard"):
+                goodsImageView.setImageResource(R.drawable.keyboard);
+                informationTextView.setText("New Bösendorfer 225 Grand Piano\nThe 225, like the bigger brother 290 Imperial – has been crafted dedicating to the tradition of Viennese piano building.");
+                break;
+            case ("drums"):
+                goodsImageView.setImageResource(R.drawable.drums);
+                informationTextView.setText("Yamaha - Stage Custom Birch \n6-Pc Drum Set (10,12,14,16, Sn, 22) \nw/Hardware - Raven Black 100% Birch shell drums, 6-ply\n1.6mm steel hoops");
+                break;
+            case ("music plate"):
+                goodsImageView.setImageResource(R.drawable.music_plate);
+                informationTextView.setText("Bohemian Rhapsody \nPiano, Vocal and Guitar Piano-Vocal-Guitar Songbook. product type Book Only. A product from Hal Leonard");
+                break;
+        }
     }
 
     @Override
